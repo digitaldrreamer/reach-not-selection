@@ -96,7 +96,7 @@ a.set_ylabel("Tasks reached (of 1,000)")
 a.set_title("(a) Public training set", loc="left", fontsize=12)
 clean(a)
 
-elabels = ["v4\n≤ 3 ops", "v4\n≤ 4 ops", "v4 + T\n≤ 3 ops"]
+elabels = ["v4\n≤ 3 ops", "v4\n≤ 4 ops", "v4 + agreement\nset, ≤ 3 ops"]
 ex = np.arange(len(elabels))
 b.bar(ex, [0, 0, 0], width=0.6, color=EVAL)
 for xi in ex:
@@ -106,7 +106,7 @@ b.set_xticks(ex, elabels)
 b.set_ylim(0, 8.4)
 b.set_ylabel("Tasks reached (of 120)")
 b.set_title("(b) Public evaluation set", loc="left", fontsize=12)
-b.text(1, 4.6, "All three searches ran to\ncompletion; no program fits.",
+b.text(1, 4.6, "Every search finished.\nNo program fits.",
        ha="center", fontsize=10, color=MUTED)
 clean(b)
 
@@ -193,6 +193,132 @@ fig.text(0.5, 0.33, "What is missing\non ARC-AGI-2", fontsize=19,
          color=MUTED, ha="center", va="center", linespacing=1.25)
 fig.add_artist(plt.Line2D([0.36, 0.64], [0.45, 0.45], color=RULE, lw=1.2))
 fig.savefig(OUT / "card.png", facecolor="white")
+plt.close(fig)
+
+# ---- Extra figures for the full paper --------------------------------
+from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
+
+def box(ax, x, y, w, h, text, fc="white", ec=INK, size=11, weight="normal"):
+    ax.add_patch(FancyBboxPatch((x - w / 2, y - h / 2), w, h,
+                 boxstyle="round,pad=0.02,rounding_size=0.06",
+                 fc=fc, ec=ec, lw=1.0))
+    ax.text(x, y, text, ha="center", va="center", fontsize=size,
+            fontweight=weight, color=INK, linespacing=1.3)
+
+def arrow(ax, x0, y0, x1, y1, label=None, lx=0, ly=0):
+    ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), arrowstyle="-|>",
+                 mutation_scale=12, lw=1.0, color=INK))
+    if label:
+        ax.text((x0 + x1) / 2 + lx, (y0 + y1) / 2 + ly, label, fontsize=10,
+                color=MUTED, ha="center", va="center")
+
+# Flow: how a task ends up solved, a reach failure or a selection failure.
+fig, ax = plt.subplots(figsize=(10, 3.6), dpi=200)
+ax.set_xlim(0, 10); ax.set_ylim(0, 3.6); ax.axis("off")
+box(ax, 1.15, 2.5, 2.0, 1.0, "Search every\nprogram within\nthe budget")
+box(ax, 3.9, 2.5, 2.2, 1.0, "Does any program\nfit all example\npairs?")
+box(ax, 6.75, 2.5, 2.2, 1.0, "Is the chosen\nprogram right on\nthe test input?")
+box(ax, 9.05, 2.5, 1.4, 0.8, "Solved", fc="#e1eaf5", ec=TRAIN, weight="bold")
+box(ax, 3.9, 0.55, 2.2, 0.8, "Reach failure", fc="#f6e3dc", ec=EVAL, weight="bold")
+box(ax, 6.75, 0.55, 2.2, 0.8, "Selection failure", fc="#f6e3dc", ec=EVAL, weight="bold")
+arrow(ax, 2.15, 2.5, 2.8, 2.5)
+arrow(ax, 5.0, 2.5, 5.65, 2.5, "yes", ly=0.18)
+arrow(ax, 7.85, 2.5, 8.35, 2.5, "yes", ly=0.18)
+arrow(ax, 3.9, 2.0, 3.9, 0.95, "no", lx=0.25)
+arrow(ax, 6.75, 2.0, 6.75, 0.95, "no", lx=0.25)
+fig.savefig(OUT / "fig_flow.png", facecolor="white", bbox_inches="tight", pad_inches=0.1)
+plt.close(fig)
+
+# What happens to the reached tasks at v4 (all searches complete).
+n_first = first_fit
+n_fixable = oracle_gain
+n_nocorrect = len(reached4) - any_fit
+parts = [(n_first, "solved by the first fitting program", TRAIN),
+         (n_fixable, "a correct fitting program existed, but another was chosen", "#d9a441"),
+         (n_nocorrect, "no fitting program is right on the test", EVAL)]
+fig, ax = plt.subplots(figsize=(10, 2.4), dpi=200)
+left = 0
+for n, lab, col in parts:
+    ax.barh(0, n, left=left, color=col, height=0.55, edgecolor="white", lw=1)
+    left += n
+ax.set_xlim(0, len(reached4)); ax.set_ylim(-0.4, 0.4); ax.axis("off")
+ax.set_title(f"The {len(reached4)} training tasks reached at v4 (every search complete)", loc="left", fontsize=12)
+from matplotlib.patches import Patch
+ax.legend(handles=[Patch(color=c, label=f"{n}  {lab}") for n, lab, c in parts],
+          loc="upper left", bbox_to_anchor=(0, -0.05), frameon=False, fontsize=10.5, ncol=1)
+fig.savefig(OUT / "fig_v4_breakdown.png", facecolor="white", bbox_inches="tight", pad_inches=0.15)
+plt.close(fig)
+
+# Selection rules by number of example pairs used (v1 and v2).
+f1 = load("data/S2-arc2-paper-rerun-001/fpcurve.json")["aggregates_per_k"]
+f2 = load("data/S2-arc2-paper-rerun-001/fpcurve2.json")["aggregates_per_k"]
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), dpi=200, sharey=True)
+names = {"r1": "first fit", "r2": "shortest", "r3": "filter", "r4": "vote"}
+styles = {"r1": ("-", "o"), "r2": ("--", "s"), "r3": (":", "^"), "r4": ("-.", "D")}
+for ax, aggs, title in [(axes[0], f1, "(a) v1"), (axes[1], f2, "(b) v2")]:
+    xs = range(len(aggs))
+    for r in ["r1", "r2", "r3", "r4"]:
+        ls, mk = styles[r]
+        ax.plot(xs, [a["acc"][r] for a in aggs], ls, marker=mk, color=TRAIN if r == "r1" else MUTED,
+                lw=1.2, ms=5, label=names[r])
+    ax.set_xticks(list(xs), [f"first 1\n({aggs[0]['n_tasks_with_fit']} tasks)",
+                             f"first 2\n({aggs[1]['n_tasks_with_fit']} tasks)",
+                             f"all\n({aggs[2]['n_tasks_with_fit']} tasks)"])
+    ax.set_title(title, loc="left", fontsize=12); clean(ax); ax.set_ylim(0.3, 1.05)
+axes[0].set_ylabel("Share solved by the chosen program")
+axes[1].legend(frameon=False, fontsize=9.5, loc="lower right")
+fig.supxlabel("Number of example pairs a program must fit", fontsize=11, y=-0.08)
+fig.savefig(OUT / "fig_selection_rules.png", facecolor="white", bbox_inches="tight", pad_inches=0.15)
+plt.close(fig)
+
+# New reach and new solves per test.
+labels_t = ["v3", "v4", "agreement set\nadded to v4", "random set\nadded to v4"]
+fig, ax = plt.subplots(figsize=(8, 3.8), dpi=200)
+x = np.arange(len(tests)); w = 0.36
+ax.bar(x - w / 2, [t[0] for t in tests], w, color=MUTED, label="newly reached")
+ax.bar(x + w / 2, [t[1] for t in tests], w, color=TRAIN, label="of these, solved")
+for i, (r, sv) in enumerate(tests):
+    ax.text(i - w / 2, r + 0.12, str(r), ha="center", fontsize=11)
+    ax.text(i + w / 2, sv + 0.12, str(sv), ha="center", fontsize=11)
+ax.set_xticks(x, labels_t); ax.set_ylabel("Training tasks"); ax.set_ylim(0, 8.2)
+ax.legend(frameon=False, fontsize=10, loc="upper right"); clean(ax)
+ax.set_title(f"Newly reached tasks and how many were solved ({pooled_solved} of {pooled_reached} in total)", loc="left", fontsize=12)
+fig.savefig(OUT / "fig_conversion.png", facecolor="white", bbox_inches="tight", pad_inches=0.15)
+plt.close(fig)
+
+# Categories of the tasks v2 could not reach.
+lab = load("data/b4-taxonomy-001/labels.json")["counts"]
+catnames = {"1": "tiling or scaling", "2": "symmetry completion", "3": "recolour objects by a property",
+            "4": "move objects", "5": "draw lines or paths", "6": "build output from counts",
+            "7": "crop to a marked region", "8": "combine sub-grids", "9": "repair a pattern",
+            "10": "none of the above (no operations taken from here)"}
+items = sorted(((int(v), catnames[str(k)]) for k, v in lab.items()), reverse=True)
+fig, ax = plt.subplots(figsize=(9, 4.2), dpi=200)
+ys = np.arange(len(items))[::-1]
+ax.barh(ys, [c for c, _ in items], color=[MUTED if n.startswith("none") else TRAIN for _, n in items], height=0.6)
+for y, (c, n) in zip(ys, items):
+    ax.text(c + 5, y, str(c), va="center", fontsize=10)
+ax.set_yticks(ys, [n for _, n in items]); ax.set_xlabel("Training tasks no v2 program reaches")
+ax.set_title(f"Categories of the {sum(c for c, _ in items)} unreached training tasks", loc="left", fontsize=12)
+clean(ax)
+fig.savefig(OUT / "fig_categories.png", facecolor="white", bbox_inches="tight", pad_inches=0.15)
+plt.close(fig)
+
+# Design of the T vs R comparison.
+fig, ax = plt.subplots(figsize=(10, 4.2), dpi=200)
+ax.set_xlim(0, 10); ax.set_ylim(0, 4.2); ax.axis("off")
+box(ax, 1.3, 2.1, 2.1, 1.1, "40 candidate\noperations\n+ 60 practice\ntask families", size=10)
+box(ax, 4.0, 3.2, 2.2, 0.8, "Search method 1\n(every program)", size=10)
+box(ax, 4.0, 2.1, 2.2, 0.8, "Search method 2\n(randomised beam)", size=10)
+box(ax, 4.0, 0.7, 2.2, 0.8, "Random draw\n(seed fixed in advance)", size=10)
+box(ax, 6.7, 2.65, 1.9, 0.9, "Agreement set:\ntop 10 by\nboth methods", fc="#e1eaf5", ec=TRAIN, size=10, weight="bold")
+box(ax, 6.7, 0.7, 1.9, 0.8, "Random set:\n10 at random", fc="#eeeeee", ec=MUTED, size=10, weight="bold")
+box(ax, 9.0, 1.7, 1.7, 1.4, "Add each set\nto v4, same\nbudget; count\nnew solves", size=10)
+arrow(ax, 2.35, 2.4, 2.9, 3.1); arrow(ax, 2.35, 2.1, 2.9, 2.1); arrow(ax, 2.35, 1.8, 2.9, 0.85)
+arrow(ax, 5.1, 3.15, 5.75, 2.85); arrow(ax, 5.1, 2.15, 5.75, 2.5); arrow(ax, 5.1, 0.7, 5.75, 0.7)
+arrow(ax, 7.65, 2.55, 8.15, 2.05); arrow(ax, 7.65, 0.8, 8.15, 1.35)
+ax.text(5.0, 4.05, "No real ARC tasks are used to choose operations.", ha="center", fontsize=10.5, color=MUTED)
+fig.savefig(OUT / "fig_t_vs_r_design.png", facecolor="white", bbox_inches="tight", pad_inches=0.1)
 plt.close(fig)
 
 print("pooled", pooled_solved, "/", pooled_reached,

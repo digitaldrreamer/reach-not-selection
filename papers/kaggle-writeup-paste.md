@@ -1,5 +1,3 @@
-# Reach, Not Selection: Measuring What Is Missing on ARC-AGI-2
-
 **Linked entry:** [tpd-arc2-entry](https://www.kaggle.com/code/digitaldrreamer/tpd-arc2-entry) (submission 55910824, leaderboard score 0.00) | **Code, data and plans:** [reach-not-selection](https://github.com/digitaldrreamer/reach-not-selection), MIT-0 | **Full paper:** [PDF](https://github.com/digitaldrreamer/reach-not-selection/blob/main/papers/reach-not-selection-full.pdf)
 
 ## Abstract
@@ -14,7 +12,7 @@ One kind of solver searches for programs. It builds programs from a fixed list o
 
 When this kind of solver scores 0.00, the cause matters, because each cause has a different fix. A reach failure needs new operations. A selection failure needs a better way to choose among programs.
 
-![Figure 1](media/fig_flow.png)
+[INSERT fig_flow.png]
 
 *Figure 1. How a task ends. Every failed task is either a reach failure or a selection failure.*
 
@@ -28,7 +26,7 @@ Our work is closest to the library-building methods, because it asks where new o
 
 **Solver.** A Rust program lists chains of grid operations, such as rotations, mirror images, recolourings and scaling. It tries shorter chains first, in a fixed order, up to 3 operations unless we say otherwise. A program **fits** a task when it gives every example output exactly. A task is **reached** when at least one fitting program is found. Our solver submits the first fitting program it finds. Figure 2 shows a real task.
 
-![Figure 2](media/fig1_task_walkthrough.png)
+[INSERT fig1_task_walkthrough.png]
 
 *Figure 2. One task and the first program that fits it. Mirror right, then mirror down, gives the example output. It also gives the correct output for the test input, which the solver does not see.*
 
@@ -46,7 +44,7 @@ Our work is closest to the library-building methods, because it asks where new o
 
 No searched program is correct on any evaluation task, so no choosing rule can help. Before the length-4 run, we filed a note saying what a zero would mean: the evaluation tasks need **kinds of operations this vocabulary does not have**. Programs of up to 4 existing operations do not reach these tasks.
 
-![Figure 3](media/fig2_reach_ladder.png)
+[INSERT fig2_reach_ladder.png]
 
 *Figure 3. Tasks reached as the vocabulary grows. (a) Public training set, out of 1,000: reach grows from 25 to 58. (b) Public evaluation set, out of 120: every search finished, and no program fits.*
 
@@ -77,24 +75,3 @@ For this solver, ARC-AGI-2 is hard because of a lack of reach. A better choosing
 **What did not work.** We planned a neural way to choose operations. On new examples from 20 practice families, it gave exactly the right output 0.02 of the time. That is below the 0.50 bar we set in advance, so we did not use it. Our first planned threshold, for how often an operation appears in the search methods' solutions, was far too strict: almost no candidate could pass it, and none did. We replaced it with a ranking rule before looking at the rankings. We designed the second search method after seeing the first method's results. One run used the wrong search order. A check caught it, and we ran it again.
 
 **Limits.** Searches that hit their limit may undercount. The counts are small. The comparison of the two sets was run once, on one pool of operations. The leaderboard uses a hidden set we cannot inspect. The solver we ran on Kaggle gives the same output as our measured run on all 120 evaluation tasks, byte for byte.
-
----
-
-## Where each number comes from
-
-All paths are in this repository. Run IDs (S2-...) match `manifest/` and `data/`.
-
-| Result | File |
-|---|---|
-| v0 reach and first-fit solves (25 of 25) | `data/S2-arc2-census-001/census.json` |
-| v1 selection rules (clustering fixes 1 of 34) | `data/S2-arc2-paper-rerun-001/fpcurve.json` |
-| v2 selection rules (0.913 over 46) | `data/S2-arc2-fpcurve-002/fpcurve2.json`, reproduced in `data/S2-arc2-paper-rerun-001/fpcurve2.json` |
-| v3 reach and conversion (7 reached, 6 solved) | `data/S2-arc2-tier3-001/tier3.json` |
-| v4 reach, conversion, selection bound (58, 52, 54) | `data/S2-arc2-tier4-001/tier4.json` |
-| Evaluation reach at length 4 (0 of 120) | `data/S2-arc2-depth4-001/depth4.json` |
-| T and R on training (6 and 3 reached) | `data/S2-b5-002/inject_T.json`, `inject_R.json` |
-| T on evaluation (0 of 120) | `data/S2-b5-003/eval_T.json` |
-| Preregistrations | `notes/b4-tier-protocol-2026-08-21.md`, `notes/b5-prereg-2026-08-23.md`, `notes/b5-prereg-v2-2026-08-23.md` |
-| Dated record of every run, correction and void | `DECISIONS.md` |
-
-Figures are regenerated from these files by `papers/media/make_figures.py`.

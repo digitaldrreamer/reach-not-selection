@@ -918,3 +918,28 @@ spot-verified against the artifacts:
 
 The 16/18 figure is superseded wherever it appears
 […]. No artifact changes.
+
+## 2026-10-04f: corrections found while writing the full paper
+
+Two errors in earlier records, found by an audit of the full paper
+against the result files and source code:
+
+1. **v3 lost one solved task.** Task 72ca375d was solved at v2
+   (tier3.json row: v2_r1_solves true) and not reached at v3 under the
+   100,000-step budget (v3_reached false, v3_censored true). The tier-3
+   summary key regression_r1_broken is empty because the counter only
+   checks tasks whose v3 first-fit result is false, and this one is
+   null (src/bin/arc2_tier3.rs). The 2026-08-21d entry's "0 tasks lost
+   R1-correctness" is therefore wrong. The v3 rerun at 1 million steps
+   and v4 both solve the task again (tier4.json row). No later stage,
+   and neither the agreement set nor the random set, lost a solved task.
+2. **The filter rule (R3) has two screens, not three.** The code
+   removes programs that leave every visible grid unchanged and
+   programs whose outputs are all single-coloured
+   (src/bin/arc2_fpcurve2.rs). The palette-projection screen named in
+   notes/arc2-dsl-v1.md was never implemented. Results are unchanged;
+   only the description was wrong.
+
+The papers now state both correctly. papers/check_numbers.py recomputes
+48 values from the result files and fails the build if the text
+disagrees.

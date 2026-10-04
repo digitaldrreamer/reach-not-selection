@@ -28,7 +28,8 @@ unreachable even by exhaustive search up to four operations.
 - `neural/`     training script for the neural arm that was excluded
                 after missing its preregistered threshold
 - `kaggle/`     the linked Kaggle notebook and how to build its binary
-- `papers/`     the writeup, figures, and the script that draws them
+- `papers/`     the Kaggle writeup, the full paper (`reach-not-selection-full.pdf`),
+                the figures and the scripts that draw them and check every number
 - `DECISIONS.md` dated record of every run, correction and voided bar
 - `PROVENANCE.md` original commit times that back the "frozen before" claims,
                 and the list of files edited for publication
@@ -45,6 +46,10 @@ Each measurement binary (`arc2_census`, `arc2_fpcurve`, `arc2_fpcurve2`,
 `arc2_tier3`, `arc2_tier4`, `arc2_depth4`, `b5_*`) prints the sha256 of
 its output; compare with `DECISIONS.md`. Enumeration is deterministic,
 so identical inputs give identical bytes.
+
+Check every number in the papers against the result files:
+
+    python3 papers/check_numbers.py papers/reach-not-selection-full.md papers/kaggle-writeup-paste.md
 
 Figures:
 
