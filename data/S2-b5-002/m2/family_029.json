@@ -1,0 +1,7 @@
+{
+ "family": "family_029",
+ "held_out": false,
+ "final_loss": 0.001345715718343854,
+ "val_exact_match": 0.0,
+ "params": 802560
+}

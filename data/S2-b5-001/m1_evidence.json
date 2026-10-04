@@ -1,0 +1,1306 @@
+{
+  "manifest": "S2-b5-001",
+  "stage": "M1 discovery",
+  "bar": 0.15,
+  "n_families": 60,
+  "families_unfit": 0,
+  "n_ops_passing": 0,
+  "e1": [
+    {
+      "op": "RotLargest90",
+      "families": 1,
+      "e1": 0.016666666666666666,
+      "passes_bar": false
+    },
+    {
+      "op": "RotLargest180",
+      "families": 1,
+      "e1": 0.016666666666666666,
+      "passes_bar": false
+    },
+    {
+      "op": "MirrorLargestH",
+      "families": 0,
+      "e1": 0.0,
+      "passes_bar": false
+    },
+    {
+      "op": "MirrorLargestV",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "MirrorAllAcrossVMid",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "MirrorAllAcrossHMid",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "TransposeEachObj",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "RotEachObj90",
+      "families": 5,
+      "e1": 0.08333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "SwapPositionsBySizeLR",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "SwapPositionsBySizeTB",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "KeepTop2",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "KeepTop3",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "RemoveSmallest2",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "RankRecolorAsc",
+      "families": 1,
+      "e1": 0.016666666666666666,
+      "passes_bar": false
+    },
+    {
+      "op": "CountObjsBar",
+      "families": 0,
+      "e1": 0.0,
+      "passes_bar": false
+    },
+    {
+      "op": "CountColorsBar",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "ReplicateByCount",
+      "families": 1,
+      "e1": 0.016666666666666666,
+      "passes_bar": false
+    },
+    {
+      "op": "LargestSizeSquare",
+      "families": 0,
+      "e1": 0.0,
+      "passes_bar": false
+    },
+    {
+      "op": "KeepObjsWithHoles",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "RemoveObjsWithHoles",
+      "families": 7,
+      "e1": 0.11666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "ScaleLargest2x",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "StampSmallestMirrored",
+      "families": 5,
+      "e1": 0.08333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "FillObjBBoxes",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "OutlineObjects",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "ColorShiftUp",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "ColorShiftDown",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "SwapMinorityMajority",
+      "families": 0,
+      "e1": 0.0,
+      "passes_bar": false
+    },
+    {
+      "op": "InvertPaletteRank",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "BgSwapLeast",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "RecolorAllMajority",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "MoveLargestToCenter",
+      "families": 1,
+      "e1": 0.016666666666666666,
+      "passes_bar": false
+    },
+    {
+      "op": "AlignObjsLeft",
+      "families": 4,
+      "e1": 0.06666666666666667,
+      "passes_bar": false
+    },
+    {
+      "op": "AlignObjsTop",
+      "families": 1,
+      "e1": 0.016666666666666666,
+      "passes_bar": false
+    },
+    {
+      "op": "SpreadRow",
+      "families": 5,
+      "e1": 0.08333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "CenterColumnObjs",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "BorderFrame",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "FoldH",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    },
+    {
+      "op": "FoldV",
+      "families": 5,
+      "e1": 0.08333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "DropBorderTouching",
+      "families": 2,
+      "e1": 0.03333333333333333,
+      "passes_bar": false
+    },
+    {
+      "op": "KeepBorderTouching",
+      "families": 3,
+      "e1": 0.05,
+      "passes_bar": false
+    }
+  ],
+  "per_family": [
+    {
+      "family_id": "family_000",
+      "hidden_program": [
+        "MirrorAllAcrossHMid"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MirrorAllAcrossHMid"
+      ],
+      "load_bearing": [
+        "MirrorAllAcrossHMid"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_001",
+      "hidden_program": [
+        "ReplicateByCount"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "ReplicateByCount"
+      ],
+      "load_bearing": [
+        "ReplicateByCount"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_002",
+      "hidden_program": [
+        "ColorShiftDown",
+        "SwapPositionsBySizeLR"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 2,
+      "canonical_fit": [
+        "SwapPositionsBySizeLR",
+        "ColorShiftDown"
+      ],
+      "load_bearing": [
+        "SwapPositionsBySizeLR",
+        "ColorShiftDown"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_003",
+      "hidden_program": [
+        "KeepTop2",
+        "KeepObjsWithHoles",
+        "ScaleLargest2x"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "KeepTop2",
+        "ScaleLargest2x"
+      ],
+      "load_bearing": [
+        "KeepTop2",
+        "ScaleLargest2x"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_004",
+      "hidden_program": [
+        "RotEachObj90"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RotEachObj90"
+      ],
+      "load_bearing": [
+        "RotEachObj90"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_005",
+      "hidden_program": [
+        "BgSwapLeast"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "BgSwapLeast"
+      ],
+      "load_bearing": [
+        "BgSwapLeast"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_006",
+      "hidden_program": [
+        "RotLargest180",
+        "OutlineObjects"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 2,
+      "canonical_fit": [
+        "RotLargest180",
+        "OutlineObjects"
+      ],
+      "load_bearing": [
+        "OutlineObjects"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_007",
+      "hidden_program": [
+        "MirrorAllAcrossVMid"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MirrorAllAcrossVMid"
+      ],
+      "load_bearing": [
+        "MirrorAllAcrossVMid"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_008",
+      "hidden_program": [
+        "RemoveObjsWithHoles",
+        "KeepTop3"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RemoveObjsWithHoles",
+        "KeepTop3"
+      ],
+      "load_bearing": [
+        "KeepTop3",
+        "RemoveObjsWithHoles"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_009",
+      "hidden_program": [
+        "SwapMinorityMajority",
+        "RemoveObjsWithHoles",
+        "SwapPositionsBySizeTB"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 4,
+      "canonical_fit": [
+        "RemoveObjsWithHoles",
+        "SwapPositionsBySizeTB",
+        "InvertPaletteRank"
+      ],
+      "load_bearing": [
+        "SwapPositionsBySizeTB",
+        "RemoveObjsWithHoles"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_010",
+      "hidden_program": [
+        "AlignObjsLeft"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "AlignObjsLeft"
+      ],
+      "load_bearing": [
+        "AlignObjsLeft"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_011",
+      "hidden_program": [
+        "ColorShiftDown"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "ColorShiftDown"
+      ],
+      "load_bearing": [
+        "ColorShiftDown"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_012",
+      "hidden_program": [
+        "TransposeEachObj",
+        "InvertPaletteRank"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 4,
+      "canonical_fit": [
+        "TransposeEachObj",
+        "SwapMinorityMajority"
+      ],
+      "load_bearing": [
+        "TransposeEachObj"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_013",
+      "hidden_program": [
+        "OutlineObjects",
+        "SpreadRow"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "OutlineObjects",
+        "SpreadRow"
+      ],
+      "load_bearing": [
+        "OutlineObjects",
+        "SpreadRow"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_014",
+      "hidden_program": [
+        "FoldH",
+        "RecolorAllMajority"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "FoldH",
+        "RecolorAllMajority"
+      ],
+      "load_bearing": [
+        "RecolorAllMajority",
+        "FoldH"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_015",
+      "hidden_program": [
+        "StampSmallestMirrored"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "StampSmallestMirrored"
+      ],
+      "load_bearing": [
+        "StampSmallestMirrored"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_016",
+      "hidden_program": [
+        "SwapPositionsBySizeTB",
+        "ScaleLargest2x"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "SwapPositionsBySizeTB",
+        "ScaleLargest2x"
+      ],
+      "load_bearing": [
+        "SwapPositionsBySizeTB",
+        "ScaleLargest2x"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_017",
+      "hidden_program": [
+        "FillObjBBoxes"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "FillObjBBoxes"
+      ],
+      "load_bearing": [
+        "FillObjBBoxes"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_018",
+      "hidden_program": [
+        "ScaleLargest2x"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "ScaleLargest2x"
+      ],
+      "load_bearing": [
+        "ScaleLargest2x"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_019",
+      "hidden_program": [
+        "KeepObjsWithHoles",
+        "SwapPositionsBySizeLR",
+        "FoldH"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "KeepObjsWithHoles",
+        "SwapPositionsBySizeLR",
+        "FoldH"
+      ],
+      "load_bearing": [
+        "SwapPositionsBySizeLR",
+        "KeepObjsWithHoles",
+        "FoldH"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_020",
+      "hidden_program": [
+        "RemoveObjsWithHoles"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RemoveObjsWithHoles"
+      ],
+      "load_bearing": [
+        "RemoveObjsWithHoles"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_021",
+      "hidden_program": [
+        "RemoveObjsWithHoles",
+        "FoldV",
+        "FillObjBBoxes"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 2,
+      "canonical_fit": [
+        "RemoveObjsWithHoles",
+        "FoldV",
+        "FillObjBBoxes"
+      ],
+      "load_bearing": [
+        "RemoveObjsWithHoles",
+        "FillObjBBoxes",
+        "FoldV"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_022",
+      "hidden_program": [
+        "ColorShiftDown",
+        "CenterColumnObjs",
+        "SpreadRow"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 3,
+      "canonical_fit": [
+        "ColorShiftDown",
+        "CenterColumnObjs",
+        "SpreadRow"
+      ],
+      "load_bearing": [
+        "ColorShiftDown",
+        "SpreadRow",
+        "CenterColumnObjs"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_023",
+      "hidden_program": [
+        "RotEachObj90",
+        "ScaleLargest2x",
+        "BorderFrame"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RotEachObj90",
+        "ScaleLargest2x",
+        "BorderFrame"
+      ],
+      "load_bearing": [
+        "RotEachObj90",
+        "ScaleLargest2x",
+        "BorderFrame"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_024",
+      "hidden_program": [
+        "SpreadRow"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "SpreadRow"
+      ],
+      "load_bearing": [
+        "SpreadRow"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_025",
+      "hidden_program": [
+        "TransposeEachObj",
+        "RotEachObj90",
+        "KeepBorderTouching"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "TransposeEachObj",
+        "RotEachObj90",
+        "KeepBorderTouching"
+      ],
+      "load_bearing": [
+        "TransposeEachObj",
+        "RotEachObj90",
+        "KeepBorderTouching"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_026",
+      "hidden_program": [
+        "FoldV"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "FoldV"
+      ],
+      "load_bearing": [
+        "FoldV"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_027",
+      "hidden_program": [
+        "MoveLargestToCenter",
+        "SwapPositionsBySizeLR",
+        "CenterColumnObjs"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MoveLargestToCenter",
+        "SwapPositionsBySizeLR",
+        "CenterColumnObjs"
+      ],
+      "load_bearing": [
+        "SwapPositionsBySizeLR",
+        "MoveLargestToCenter",
+        "CenterColumnObjs"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_028",
+      "hidden_program": [
+        "ColorShiftUp",
+        "RemoveSmallest2",
+        "KeepTop2"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 3,
+      "canonical_fit": [
+        "RemoveSmallest2",
+        "KeepTop2",
+        "ColorShiftUp"
+      ],
+      "load_bearing": [
+        "KeepTop2",
+        "RemoveSmallest2",
+        "ColorShiftUp"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_029",
+      "hidden_program": [
+        "KeepTop3"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "KeepTop3"
+      ],
+      "load_bearing": [
+        "KeepTop3"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_030",
+      "hidden_program": [
+        "InvertPaletteRank"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "InvertPaletteRank"
+      ],
+      "load_bearing": [
+        "InvertPaletteRank"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_031",
+      "hidden_program": [
+        "BgSwapLeast"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "BgSwapLeast"
+      ],
+      "load_bearing": [
+        "BgSwapLeast"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_032",
+      "hidden_program": [
+        "CountColorsBar"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "CountColorsBar"
+      ],
+      "load_bearing": [
+        "CountColorsBar"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_033",
+      "hidden_program": [
+        "SwapPositionsBySizeTB"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "SwapPositionsBySizeTB"
+      ],
+      "load_bearing": [
+        "SwapPositionsBySizeTB"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_034",
+      "hidden_program": [
+        "FoldH",
+        "RemoveObjsWithHoles",
+        "ColorShiftUp"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 3,
+      "canonical_fit": [
+        "ColorShiftUp",
+        "FoldH",
+        "RemoveObjsWithHoles"
+      ],
+      "load_bearing": [
+        "RemoveObjsWithHoles",
+        "ColorShiftUp",
+        "FoldH"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_035",
+      "hidden_program": [
+        "ColorShiftUp",
+        "AlignObjsLeft",
+        "FillObjBBoxes"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 3,
+      "canonical_fit": [
+        "ColorShiftUp",
+        "AlignObjsLeft",
+        "FillObjBBoxes"
+      ],
+      "load_bearing": [
+        "FillObjBBoxes",
+        "ColorShiftUp",
+        "AlignObjsLeft"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_036",
+      "hidden_program": [
+        "TransposeEachObj"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "TransposeEachObj"
+      ],
+      "load_bearing": [
+        "TransposeEachObj"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_037",
+      "hidden_program": [
+        "RankRecolorAsc",
+        "KeepObjsWithHoles",
+        "StampSmallestMirrored"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RankRecolorAsc",
+        "KeepObjsWithHoles",
+        "StampSmallestMirrored"
+      ],
+      "load_bearing": [
+        "RankRecolorAsc",
+        "KeepObjsWithHoles",
+        "StampSmallestMirrored"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_038",
+      "hidden_program": [
+        "AlignObjsTop",
+        "RemoveSmallest2",
+        "AlignObjsTop"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "AlignObjsTop",
+        "RemoveSmallest2",
+        "AlignObjsTop"
+      ],
+      "load_bearing": [
+        "RemoveSmallest2",
+        "AlignObjsTop"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_039",
+      "hidden_program": [
+        "RemoveObjsWithHoles",
+        "AlignObjsLeft",
+        "StampSmallestMirrored"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RemoveObjsWithHoles",
+        "AlignObjsLeft",
+        "StampSmallestMirrored"
+      ],
+      "load_bearing": [
+        "RemoveObjsWithHoles",
+        "StampSmallestMirrored",
+        "AlignObjsLeft"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_040",
+      "hidden_program": [
+        "FoldV",
+        "BorderFrame",
+        "StampSmallestMirrored"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "FoldV",
+        "BorderFrame",
+        "StampSmallestMirrored"
+      ],
+      "load_bearing": [
+        "StampSmallestMirrored",
+        "BorderFrame",
+        "FoldV"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_041",
+      "hidden_program": [
+        "MirrorLargestV",
+        "SwapPositionsBySizeTB",
+        "SpreadRow"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MirrorLargestV",
+        "SwapPositionsBySizeTB",
+        "SpreadRow"
+      ],
+      "load_bearing": [
+        "MirrorLargestV",
+        "SwapPositionsBySizeTB",
+        "SpreadRow"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_042",
+      "hidden_program": [
+        "FoldV",
+        "InvertPaletteRank",
+        "KeepBorderTouching"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "FoldV",
+        "InvertPaletteRank",
+        "KeepBorderTouching"
+      ],
+      "load_bearing": [
+        "InvertPaletteRank",
+        "FoldV",
+        "KeepBorderTouching"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_043",
+      "hidden_program": [
+        "ColorShiftUp"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "ColorShiftUp"
+      ],
+      "load_bearing": [
+        "ColorShiftUp"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_044",
+      "hidden_program": [
+        "MirrorAllAcrossHMid"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MirrorAllAcrossHMid"
+      ],
+      "load_bearing": [
+        "MirrorAllAcrossHMid"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_045",
+      "hidden_program": [
+        "BgSwapLeast",
+        "BorderFrame",
+        "MoveLargestToCenter"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "BgSwapLeast",
+        "BorderFrame"
+      ],
+      "load_bearing": [
+        "BgSwapLeast",
+        "BorderFrame"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_046",
+      "hidden_program": [
+        "RemoveObjsWithHoles",
+        "FoldV"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RemoveObjsWithHoles",
+        "FoldV"
+      ],
+      "load_bearing": [
+        "RemoveObjsWithHoles",
+        "FoldV"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_047",
+      "hidden_program": [
+        "KeepObjsWithHoles"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "KeepObjsWithHoles"
+      ],
+      "load_bearing": [
+        "KeepObjsWithHoles"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_048",
+      "hidden_program": [
+        "CenterColumnObjs"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "CenterColumnObjs"
+      ],
+      "load_bearing": [
+        "CenterColumnObjs"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_049",
+      "hidden_program": [
+        "SwapMinorityMajority",
+        "OutlineObjects"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 4,
+      "canonical_fit": [
+        "OutlineObjects",
+        "SwapMinorityMajority"
+      ],
+      "load_bearing": [
+        "OutlineObjects"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_050",
+      "hidden_program": [
+        "MirrorLargestV",
+        "RotEachObj90",
+        "DropBorderTouching"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MirrorLargestV",
+        "RotEachObj90",
+        "DropBorderTouching"
+      ],
+      "load_bearing": [
+        "MirrorLargestV",
+        "RotEachObj90",
+        "DropBorderTouching"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_051",
+      "hidden_program": [
+        "CountColorsBar"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "CountColorsBar"
+      ],
+      "load_bearing": [
+        "CountColorsBar"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_052",
+      "hidden_program": [
+        "AlignObjsLeft",
+        "RecolorAllMajority"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "AlignObjsLeft",
+        "RecolorAllMajority"
+      ],
+      "load_bearing": [
+        "RecolorAllMajority",
+        "AlignObjsLeft"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_053",
+      "hidden_program": [
+        "RotLargest180"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "RotLargest180"
+      ],
+      "load_bearing": [
+        "RotLargest180"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_054",
+      "hidden_program": [
+        "BgSwapLeast",
+        "RotEachObj90"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 2,
+      "canonical_fit": [
+        "RotEachObj90",
+        "BgSwapLeast"
+      ],
+      "load_bearing": [
+        "RotEachObj90",
+        "BgSwapLeast"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_055",
+      "hidden_program": [
+        "InvertPaletteRank"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "InvertPaletteRank"
+      ],
+      "load_bearing": [
+        "InvertPaletteRank"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_056",
+      "hidden_program": [
+        "OutlineObjects",
+        "KeepBorderTouching"
+      ],
+      "min_fit_len": 2,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "OutlineObjects",
+        "KeepBorderTouching"
+      ],
+      "load_bearing": [
+        "OutlineObjects",
+        "KeepBorderTouching"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_057",
+      "hidden_program": [
+        "MirrorAllAcrossVMid",
+        "ReplicateByCount"
+      ],
+      "min_fit_len": 1,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "MirrorAllAcrossVMid"
+      ],
+      "load_bearing": [
+        "MirrorAllAcrossVMid"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_058",
+      "hidden_program": [
+        "StampSmallestMirrored",
+        "KeepTop2",
+        "DropBorderTouching"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "StampSmallestMirrored",
+        "KeepTop2",
+        "DropBorderTouching"
+      ],
+      "load_bearing": [
+        "KeepTop2",
+        "StampSmallestMirrored",
+        "DropBorderTouching"
+      ],
+      "unfit": false
+    },
+    {
+      "family_id": "family_059",
+      "hidden_program": [
+        "SpreadRow",
+        "TransposeEachObj",
+        "RotLargest90"
+      ],
+      "min_fit_len": 3,
+      "n_minimal_fits": 1,
+      "canonical_fit": [
+        "SpreadRow",
+        "TransposeEachObj",
+        "RotLargest90"
+      ],
+      "load_bearing": [
+        "RotLargest90",
+        "TransposeEachObj",
+        "SpreadRow"
+      ],
+      "unfit": false
+    }
+  ]
+}

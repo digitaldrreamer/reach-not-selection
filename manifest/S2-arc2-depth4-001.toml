@@ -1,0 +1,41 @@
+# ARC-2 DEPTH-4 EVAL PROBE (B4 Amendment A2). One-off attribution
+# measurement, registered before the instrument existed. Question:
+# tier-4 measured an EXHAUSTIVE zero — no program in the v4 len<=3
+# space fits any of the 120 public evaluation tasks. Is that limit
+# DEPTH (composition length) or OP VOCABULARY?
+#
+# Instrument: v4 alphabet (S2-arc2-tier4-001 freeze, unchanged),
+# len <= 4, node budget 100,000,000 (exhaustive for <= ~80 ops:
+# 80^4 ~= 4.1e7), fitting cap 2000, canonical order, R1. Public
+# evaluation set ONLY (120 tasks, ARC-AGI-2 @ f3283f72). This run is
+# the single extended eval read A2 authorizes.
+#
+# PRE-FILED OUTCOMES: zero fits -> the eval gap is op-class, not
+# depth; B5's op-proposal arm inherits the motivation. Nonzero fits ->
+# depth was binding; any change to the entry's search depth requires a
+# further amendment BEFORE the entry changes. No op selection may
+# derive from per-task results of this probe.
+manifest_id = "S2-arc2-depth4-001"
+schema_version = 1
+exploratory = false
+master_seed = 0
+seeds = [1]
+node_expansion_budget = 100000000
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "depth-4 attribution probe on the ARC-2 public evaluation set (B4 A2)",
+  "descriptive; cannot feed any benchmark-progress claim […]",
+]
+
+[params]
+max_len = 4
+enum_budget_nodes = 100000000
+fitting_cap_per_task = 2000
+alphabet = "v4 (S2-arc2-tier4-001, unchanged)"
+dataset_split = "evaluation (120 tasks)"
+
+[inputs]
+dataset = "ARC-AGI-2 data/evaluation @ f3283f727488ad98fe575ea6a5ac981e4a188e49"
+
+[outputs]
+depth4 = "data/S2-arc2-depth4-001/depth4.json"

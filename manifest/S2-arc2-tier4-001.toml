@@ -1,0 +1,81 @@
+# ARC-2 TIER 4: op freeze + conversion measurement (B4 protocol §3.2/§4
+# + Amendment A1). Registered AFTER the tier-4 taxonomy re-rank commit
+# (data/b4-taxonomy-001/labels_tier4.json: cat5 240, cat3 91, cat7 40,
+# cat1 36, cat9 36, cat8 31 over the 948 v3-unreached tasks) and BEFORE
+# any tier-4 op was implemented or run.
+#
+# Amendment A1 applies: enum budget 1,000,000 nodes, uniform across the
+# v3 baseline and v4 inside this comparison. The run reports v3@1M reach
+# vs the recorded v3@100k reach (52) so the budget effect is isolated
+# from the op effect. N_4/C_4 are defined v4@1M vs v3@1M.
+#
+# Tier-4 alphabet v4 = v3 + the TEN ops below. Design note, recorded
+# honestly: tier-3's recolor ops converted 0 of cat-3's 91 tasks, so
+# tier 4 invests in mechanisms tier 3 did not try (scaling as pixel
+# replication, rays, diagonals, dilation, pane unions) rather than more
+# of the same. Objects = 4-connected same-color components vs bg = most
+# common color (tier-3 precedent). Unresolvable cases return the input.
+#
+# FROZEN OP SEMANTICS:
+#  1 scale_2x   (cat 1): each cell becomes a 2x2 block of its color
+#    (h*2 x w*2 pixel replication; distinct from tile_2x2).
+#  2 scale_3x   (cat 1): each cell becomes a 3x3 block.
+#  3 rays_from_singletons (cat 5): every size-1 object emits four
+#    orthogonal rays from its cell to the grid edges in its color,
+#    overwriting bg only (reads the original grid; writes accumulate
+#    in cell order row-major, later rays do not overwrite non-bg).
+#  4 diag_extend (cat 5): every maximal diagonal run (both diagonal
+#    directions) of >= 2 same-color cells is extended in both
+#    directions to the grid edge in that color, overwriting bg only.
+#  5 connect_diag (cat 5): for every pair of same-color cells on a
+#    shared diagonal with ONLY bg strictly between, fill the between
+#    cells with that color (main-diagonal pass then anti-diagonal,
+#    second pass reads the first's result — connect_pairs precedent).
+#  6 halo       (cat 5/9): every object is dilated by one cell
+#    (4-connected) into bg in the object's color; overlapping claims
+#    resolve to the first object in component order.
+#  7 outline_box (cat 5): the bounding-box border of each object is
+#    drawn in the object's color on bg cells only; component order
+#    resolves overlaps.
+#  8 remove_singletons (cat 9): every size-1 object becomes bg.
+#  9 pane_or    (cat 8): pane split as pane_and; output cell = p1's
+#    color if p1 non-bg1, else p2's color if p2 non-bg2, else bg1.
+# 10 pane_xor   (cat 8): output cell = the one pane's color when
+#    exactly one pane is non-bg there, else bg1.
+#
+# MEASUREMENT (bin arc2_tier4): over data/training @ f3283f72,
+# enumerate v3 and v4 fits (len <= 3, 1M nodes each, cap 2000, k=all);
+# N_4 = v4-reached minus v3-reached (both @1M); C_4 = share of N_4
+# whose R1 first fit solves the held-back test; FP_4; regression guard
+# (reach or R1-correctness lost v3@1M -> v4@1M); plus v3@1M reach and
+# its delta vs v3@100k = 52. Pre-filed bars unchanged (N >= 5;
+# C >= 0.75 supports; C < 0.5 refutation boundary). After this run:
+# tier-4's ONE public-eval read at 1M via the v4 solver.
+manifest_id = "S2-arc2-tier4-001"
+schema_version = 1
+exploratory = false
+master_seed = 0
+seeds = [1]
+node_expansion_budget = 1000000
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "tier-4 op freeze + conversion measurement C_4 at 1M nodes (B4 A1)",
+  "descriptive; cannot feed any benchmark-progress claim […]",
+]
+
+[params]
+max_len = 3
+enum_budget_nodes = 1000000
+fitting_cap_per_task = 2000
+palette_cap = 5
+tie_seed_tier4 = 992100
+n_new_ops = 10
+alphabet = "v4 = v3 + 10 frozen ops above"
+
+[inputs]
+dataset = "ARC-AGI-2 data/training @ f3283f727488ad98fe575ea6a5ac981e4a188e49"
+tier3_baseline = "data/S2-arc2-tier3-001/tier3.json"
+taxonomy = "data/b4-taxonomy-001/labels_tier4.json"
+
+[outputs]
+tier4 = "data/S2-arc2-tier4-001/tier4.json"

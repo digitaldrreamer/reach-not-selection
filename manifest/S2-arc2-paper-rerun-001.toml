@@ -1,0 +1,70 @@
+# ARC-2 census + fp-curve tiers 1 and 2: PREREGISTERED PROMOTION RERUN
+# for the ARC Prize 2026 paper workstream (DECISIONS.md 2026-08-21
+# scope entry). The July runs (S2-arc2-census-001,
+# S2-arc2-fpcurve-001, S2-arc2-fpcurve-002) were exploratory and may
+# not be cited; per […], promotion = rerun under a preregistered
+# manifest. This manifest reruns all three binaries with UNCHANGED
+# code, params, and seeds on a freshly downloaded, commit-pinned
+# dataset.
+#
+# DATASET: github.com/arcprize/ARC-AGI-2, commit
+# f3283f727488ad98fe575ea6a5ac981e4a188e49 (data/training, 1000
+# tasks), cloned 2026-08-21. The July runs recorded no dataset hash
+# ("main, downloaded 2026-07-24"), so upstream drift since July
+# cannot be excluded a priori; the pipeline is deterministic
+# (canonical enumeration, fixed tie seeds), so EXACT reproduction of
+# the pre-filed aggregates below is the drift check. Any deviation
+# is reported as-is and attributed before any number is cited.
+#
+# PRE-FILED REPRODUCTION TARGETS (recorded July outputs, verbatim):
+# census: n_tasks 1000, mean_train_pairs 3.232,
+#   n_any_fit_solves_test 25, n_first_fit_solves_test 25,
+#   fit_but_first_wrong 0, n_shape_preserving 680.
+# fpcurve tier 1 (k=all): n_tasks_with_fit 34, r1=r2=r3 0.9706,
+#   r4 1.0, n_budget_censored 22.
+# fpcurve2 tier 2 (k=all): n_tasks_with_fit 46, r1=r2=r3=r4 0.9130,
+#   n_budget_censored 38; k=1: n_tasks_with_fit 101,
+#   n_budget_censored 87.
+#
+# WHAT THIS RUN MAY FEED: descriptive citation of these measurements
+# in the ARC Prize 2026 paper, always carried with the
+# budget-censoring caveat (100k-node cap; tier-2 k=1 censoring 87/
+# 1000) and the tier scoping of R1=R2=R3=R4 (tier-2 k=all only;
+# tier 1 shows an R4 lift). WHAT IT MAY NOT FEED: any hidden-benchmark
+# progress claim; […].
+manifest_id = "S2-arc2-paper-rerun-001"
+schema_version = 1
+exploratory = false
+master_seed = 0
+seeds = [1]
+node_expansion_budget = 100000
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "promotion rerun of ARC-2 census + fp-curve tiers 1-2 for paper citation ",
+  "descriptive measurement; cannot feed any benchmark-progress claim […]",
+]
+
+[params]
+max_len = 3
+n_ops_census = 12
+k_sweep = ["1", "2", "all"]
+fitting_cap_per_task = 2000
+enum_budget_nodes = 100000
+tie_seed_tier1 = 991800
+tie_seed_tier2 = 991900
+palette_cap = 5
+deterministic = "no sampling; canonical enumeration order; fixed tie seeds"
+
+[inputs]
+dataset = "ARC-AGI-2 data/training @ f3283f727488ad98fe575ea6a5ac981e4a188e49"
+task_count = 1000
+
+[instruments]
+census = "crates/tpd-arc/src/bin/arc2_census.rs"
+fpcurve_tier1 = "crates/tpd-arc/src/bin/arc2_fpcurve.rs"
+fpcurve_tier2 = "crates/tpd-arc/src/bin/arc2_fpcurve2.rs"
+
+[outputs]
+census = "data/S2-arc2-paper-rerun-001/census.json"
+fpcurve_tier1 = "data/S2-arc2-paper-rerun-001/fpcurve.json"
+fpcurve_tier2 = "data/S2-arc2-paper-rerun-001/fpcurve2.json"

@@ -1,0 +1,33 @@
+# ARC-2 false-positive curve, TIER 2 (exploratory): identical design
+# to S2-arc2-fpcurve-001 with the v2 alphabet — v1 (Hodel Grid->Grid
+# subset + palette ops) PLUS ten object-level closures
+# (notes/arc2-dsl-v1.md tier-2 table: keep/remove largest/smallest,
+# crop-largest, fill-holes, four gravities; <= 62 ops/task). Same
+# k-sweep {1,2,all}, same rules R1-R4, same screens, same budgets;
+# fresh tie seed. THE PRE-FILED PREDICTION UNDER TEST (DECISIONS
+# 2026-07-24, written before this manifest existed): tier 2
+# (a) RAISES reach (tasks with any test-correct fit), (b) RAISES
+# the raw k=1 hazard, (c) KEEPS within-reach R4 recovery >= 0.9.
+# (c) failing kills the validation-discipline claim at this tier —
+# the refutation sentence is pre-written in the ledger. No verdict
+# weight; two-guess ARC scoring not simulated.
+manifest_id = "S2-arc2-fpcurve-002"
+schema_version = 1
+exploratory = true
+master_seed = 991900
+seeds = [1]
+node_expansion_budget = 100000
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "tier-2 hazard and rule recovery on ARC-2 training; tests the pre-filed tier-2 prediction",
+  "exploratory, cannot feed any verdict",
+]
+
+[params]
+max_len = 3
+k_sweep = ["1", "2", "all"]
+fitting_cap_per_task = 2000
+enum_budget_nodes = 100000
+tie_break_seed = 991900
+palette_cap = 5
+alphabet = "v2 = v1 + 10 object closures"

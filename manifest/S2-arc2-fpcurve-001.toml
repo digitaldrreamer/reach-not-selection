@@ -1,0 +1,47 @@
+# ARC-2 false-positive curve (exploratory; the first real
+# ambiguity measurement […], expressive tier v1). The census located
+# the hazard above the parameterless tier; this probe measures it
+# with the option-(c) published subset (Hodel arc-dsl Grid->Grid
+# ops, notes/arc2-dsl-v1.md: 20 fixed + per-task Replace/Switch
+# over the capped train-input palette, <= 52 ops/task).
+# DESIGN, per task, k-sweep over train pairs (k = 1, 2, all):
+#  - enumerate v1 programs (len <= 3, canonical iterative-deepening
+#    order) fitting the FIRST k train pairs; node budget and
+#    collection cap below, censoring recorded;
+#  - ground truth per program: test-correctness (and all-train fit,
+#    recorded beside); test OUTPUTS are used ONLY for scoring;
+#  - selection rules: R1 first-fit; R2 shortest, seeded tie-break;
+#    R3 = R2 + screens (reject candidates extensionally identity or
+#    constant-output on the VISIBLE grids: the k train inputs +
+#    test inputs); R4 = R3 + agreement clustering on predicted TEST
+#    OUTPUTS (test inputs are visible at prediction time — the
+#    ARC-legal analogue of fresh-input clustering; largest cluster,
+#    tie earliest member, shortest within, seeded tie-break).
+# PRE-NAMED READINGS: (i) THE HAZARD: share of k-fitting programs
+# that are test-wrong, vs k — the fp-curve ARC-2 was fetched for;
+# a hazard ~0 at k=1 says v1's tier is still below the ambiguity
+# band and forces tier 2 (object ops) — that sentence is
+# pre-written; (ii) rule accuracy vs k among fitted tasks — what
+# screens/agreement recover; (iii) fitted-task count per k (v1
+# reach); (iv) censoring counts. No verdict weight; no submission
+# semantics; two-guess ARC scoring NOT simulated here.
+manifest_id = "S2-arc2-fpcurve-001"
+schema_version = 1
+exploratory = true
+master_seed = 991800
+seeds = [1]
+node_expansion_budget = 100000
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "few-shot fit-but-test-wrong hazard and selection-rule recovery on ARC-2 training, v1 tier",
+  "exploratory measurement, cannot feed any verdict",
+]
+
+[params]
+max_len = 3
+k_sweep = ["1", "2", "all"]
+fitting_cap_per_task = 2000
+enum_budget_nodes = 100000
+tie_break_seed = 991800
+palette_cap = 5
+screens = ["identity-on-visible-grids", "constant-output-on-visible-grids"]

@@ -1,0 +1,287 @@
+{
+  "e1b": [
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "RotLargest90"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "RotLargest180"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "MirrorLargestH"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "MirrorLargestV"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "MirrorAllAcrossVMid"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "MirrorAllAcrossHMid"
+    },
+    {
+      "e1b": 0.2,
+      "families": 2,
+      "op": "TransposeEachObj"
+    },
+    {
+      "e1b": 0.2,
+      "families": 2,
+      "op": "RotEachObj90"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "SwapPositionsBySizeLR"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "SwapPositionsBySizeTB"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "KeepTop2"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "KeepTop3"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "RemoveSmallest2"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "RankRecolorAsc"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "CountObjsBar"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "CountColorsBar"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "ReplicateByCount"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "LargestSizeSquare"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "KeepObjsWithHoles"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "RemoveObjsWithHoles"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "ScaleLargest2x"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "StampSmallestMirrored"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "FillObjBBoxes"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "OutlineObjects"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "ColorShiftUp"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "ColorShiftDown"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "SwapMinorityMajority"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "InvertPaletteRank"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "BgSwapLeast"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "RecolorAllMajority"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "MoveLargestToCenter"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "AlignObjsLeft"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "AlignObjsTop"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "SpreadRow"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "CenterColumnObjs"
+    },
+    {
+      "e1b": 0.1,
+      "families": 1,
+      "op": "BorderFrame"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "FoldH"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "FoldV"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "DropBorderTouching"
+    },
+    {
+      "e1b": 0.0,
+      "families": 0,
+      "op": "KeepBorderTouching"
+    }
+  ],
+  "mode": "calib",
+  "n_families": 10,
+  "n_fit": 10,
+  "per_family": [
+    {
+      "family": "calib_000",
+      "fit": true,
+      "hidden": "KeepTop2",
+      "hidden_covered": true,
+      "program": "KeepTop2"
+    },
+    {
+      "family": "calib_001",
+      "fit": true,
+      "hidden": "SwapMinorityMajority",
+      "hidden_covered": true,
+      "program": "SwapMinorityMajority"
+    },
+    {
+      "family": "calib_002",
+      "fit": true,
+      "hidden": "RotEachObj90",
+      "hidden_covered": true,
+      "program": "RotEachObj90"
+    },
+    {
+      "family": "calib_003",
+      "fit": true,
+      "hidden": "FillObjBBoxes,ColorShiftDown,MirrorAllAcrossVMid",
+      "hidden_covered": true,
+      "program": "MirrorAllAcrossVMid,FillObjBBoxes,ColorShiftDown"
+    },
+    {
+      "family": "calib_004",
+      "fit": true,
+      "hidden": "RemoveObjsWithHoles,TransposeEachObj",
+      "hidden_covered": true,
+      "program": "RemoveObjsWithHoles,TransposeEachObj"
+    },
+    {
+      "family": "calib_005",
+      "fit": true,
+      "hidden": "TransposeEachObj",
+      "hidden_covered": true,
+      "program": "TransposeEachObj"
+    },
+    {
+      "family": "calib_006",
+      "fit": true,
+      "hidden": "AlignObjsLeft",
+      "hidden_covered": true,
+      "program": "AlignObjsLeft"
+    },
+    {
+      "family": "calib_007",
+      "fit": true,
+      "hidden": "BorderFrame,ColorShiftUp",
+      "hidden_covered": true,
+      "program": "BorderFrame,ColorShiftUp"
+    },
+    {
+      "family": "calib_008",
+      "fit": true,
+      "hidden": "MoveLargestToCenter,StampSmallestMirrored",
+      "hidden_covered": true,
+      "program": "MoveLargestToCenter,StampSmallestMirrored"
+    },
+    {
+      "family": "calib_009",
+      "fit": true,
+      "hidden": "RotEachObj90",
+      "hidden_covered": true,
+      "program": "RotEachObj90"
+    }
+  ],
+  "qualification": {
+    "cover_ok": true,
+    "fit": 10,
+    "fit_ok": true,
+    "hidden_cover_rate": 1.0,
+    "of": 10,
+    "qualified": true
+  }
+}

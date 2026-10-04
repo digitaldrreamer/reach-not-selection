@@ -1,0 +1,24 @@
+{
+ "m1_pass_top20": [
+  "RemoveObjsWithHoles",
+  "FoldV",
+  "RotEachObj90",
+  "SpreadRow",
+  "StampSmallestMirrored",
+  "AlignObjsLeft",
+  "BgSwapLeast",
+  "ColorShiftUp",
+  "OutlineObjects",
+  "ScaleLargest2x",
+  "SwapPositionsBySizeTB",
+  "TransposeEachObj",
+  "BorderFrame",
+  "CenterColumnObjs",
+  "ColorShiftDown",
+  "FillObjBBoxes",
+  "FoldH",
+  "InvertPaletteRank",
+  "KeepBorderTouching",
+  "KeepObjsWithHoles"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "family": "heldout_013",
+ "held_out": true,
+ "final_loss": 0.00360507657751441,
+ "val_exact_match": 0.0,
+ "params": 802560
+}

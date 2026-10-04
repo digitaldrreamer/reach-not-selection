@@ -1,0 +1,30 @@
+{
+ "R": [
+  "SwapPositionsBySizeTB",
+  "RotEachObj90",
+  "BorderFrame",
+  "SpreadRow",
+  "DropBorderTouching",
+  "RecolorAllMajority",
+  "InvertPaletteRank",
+  "FillObjBBoxes",
+  "ReplicateByCount",
+  "FoldH"
+ ],
+ "draws": [
+  [
+   "SwapPositionsBySizeTB",
+   "RotEachObj90",
+   "BorderFrame",
+   "SpreadRow",
+   "DropBorderTouching",
+   "RecolorAllMajority",
+   "InvertPaletteRank",
+   "FillObjBBoxes",
+   "ReplicateByCount",
+   "FoldH"
+  ]
+ ],
+ "prng": "splitmix64 (house convention, b5_gen)",
+ "seed": 993800
+}

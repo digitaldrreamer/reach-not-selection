@@ -1,0 +1,38 @@
+# B5 F2 implementation pin + family generation (prereg
+# notes/b5-prereg-2026-08-23.md, F1 SIGNED 2026-08-23 with the
+# at-signature amendment; DECISIONS 2026-08-23h). This manifest pins
+# the implemented candidate universe U (40 closures) and the family
+# generator BEFORE any medium trains or discovery runs (F2 clause).
+# Coding-time semantic refinements recorded pre-discovery in
+# DECISIONS 2026-08-23i. Generation is discovery SUBSTRATE, not
+# discovery: no medium has trained, no evidence bar has been read.
+manifest_id = "S2-b5-001"
+schema_version = 1
+exploratory = true
+master_seed = 993850
+seeds = [1]
+node_expansion_budget = 0
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "B5 F2 pin: U (40 closures) + generator, hashed; then seeded family generation",
+  "substrate only; no discovery reading; decisional runs get their own manifests",
+]
+
+[code_hashes]
+"crates/tpd-arc/src/u_candidates.rs" = "defc04f5c1be55cd0eec7a9135f3693d213013f68bd3da91041a9b1301a850c5"
+"crates/tpd-arc/src/bin/b5_gen.rs" = "45ed2a9d4d0f4f1a5f9e8054c10213a87032740b4bb634d91f37602400c724a5"
+
+[params]
+n_discovery_families = 60
+n_heldout_families = 20
+items_per_family = 60
+splits = "40 m2train / 10 m2val / 10 probe"
+program_len_weights = "1:0.50 2:0.30 3:0.20"
+grid_dims = "6-18"
+n_colors = "2-4"
+n_objects = "3-7 size 1-9, non-adjacent placement"
+prng = "splitmix64, seed 993850"
+
+[outputs]
+dir = "data/S2-b5-001/families/"
+corpus_hash = "data/S2-b5-001/corpus_sha256.txt"

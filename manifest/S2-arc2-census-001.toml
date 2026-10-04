@@ -1,0 +1,38 @@
+# ARC-2 census + v0 ambiguity taste (exploratory; the ARC-2 front's
+# first run, per the researcher sequencing decision 2026-07-24).
+# Loads the local ARC-AGI-2 training set (1000 tasks; source:
+# github.com/arcprize/ARC-AGI-2 main branch data/training,
+# downloaded 2026-07-24 via the arc-agi toolkit; tasks live outside
+# the repo in the session scratchpad — the loader takes the path).
+# MEASURES: (i) surface census — task count, train-pair counts,
+# grid dims, shape-preservation share; (ii) THE V0 AMBIGUITY TASTE:
+# per task, ALL v0-DSL programs (12 parameterless grid ops, len <=
+# 3, canonical order) fitting the train pairs; whether the FIRST
+# fit solves the held-back test; whether ANY fit does. The
+# fit-but-first-wrong count within the fitted subset is the
+# quantity […] — its
+# first reading on real ARC, at stand-up-DSL grade.
+# SCOPE PINS: DSL option (c) v0 — hand-rolled, NOT claimed adequate
+# for ARC; expected to fit only a small task fraction; any
+# reportable selection-quality claim waits on a published-DSL
+# subset (that swap = its own ledger entry). Test outputs are used
+# ONLY as ground truth for scoring, never by any selection logic.
+# Harness: NEW crate tpd-arc (scope addition, researcher-directed
+# ARC-2 front), bin arc2_census. CPU, $0, exploratory; cannot feed
+# any verdict.
+manifest_id = "S2-arc2-census-001"
+schema_version = 1
+exploratory = true
+master_seed = 0
+seeds = [1]
+node_expansion_budget = 0
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "ARC-2 training census + v0-DSL few-shot ambiguity taste (fits, first-fit-wrong rate)",
+  "exploratory; ARC-2 front stand-up, cannot feed any verdict",
+]
+
+[params]
+max_len = 3
+n_ops = 12
+deterministic = "no sampling anywhere; canonical enumeration order"

@@ -1,0 +1,81 @@
+# ARC-2 TIER 3: op freeze + conversion measurement (B4 protocol
+# notes/b4-tier-protocol-2026-08-21.md §3.2, §4). Registered AFTER the
+# taxonomy commit and BEFORE any tier-3 op was implemented or run.
+#
+# Tier-3 alphabet v3 = v2 + the TEN ops below (allocation per
+# notes/b4-taxonomy-2026-08-21.md). All are deterministic Grid->Grid
+# closures; "bg" = most frequent color in the grid; objects are
+# 4-connected non-bg components. Any unresolvable case (no separator,
+# no unique object, empty grid) returns the input unchanged.
+#
+# FROZEN OP SEMANTICS:
+#  1 connect_pairs      (cat 5): for every pair of same-color cells on a
+#    shared row or column with ONLY bg strictly between them, fill the
+#    between-cells with that color. Applied row-first then column.
+#  2 extend_segments    (cat 5): every maximal straight run of >= 2
+#    same-color collinear cells (row or column) is extended in both
+#    directions to the grid edge in that color, overwriting bg only.
+#  3 recolor_size_freq  (cat 3): rank objects by size desc (ties: row-major
+#    of top-left cell); rank the grid's non-bg colors by frequency desc
+#    (ties: numeric); recolor i-th object to i-th color (excess objects
+#    keep their color).
+#  4 recolor_to_largest (cat 3): recolor every object to the color of the
+#    largest object (ties: row-major first).
+#  5 tile_2x2           (cat 1): output is the input replicated in a 2x2
+#    block grid (h*2 x w*2).
+#  6 tile_mirror_2x2    (cat 1): 2x2 block grid: top-left = input,
+#    top-right = h-flip, bottom-left = v-flip, bottom-right = 180-rot.
+#  7 stamp_self         (cat 1): output h*h x w*w; for each non-bg input
+#    cell (i,j), stamp a full copy of the input at block (i,j); bg cells
+#    leave bg blocks.
+#  8 crop_unique        (cat 7): normalize every object (translate to
+#    origin, keep relative cells+colors); if exactly one object's
+#    normalized form occurs once while another form occurs >= 2 times,
+#    crop to the unique object's bounding box; else identity.
+#  9 pane_and           (cat 8): if the grid has exactly one full-width
+#    uniform separator row or one full-height separator column splitting
+#    it into two equal-dim panes, output a pane-sized grid where cells
+#    non-bg in BOTH panes take pane-1's color, else bg (bg = separator
+#    pane majority color of pane 1); else identity.
+# 10 symmetrize         (cats 2/9): for each cell, its 4-orbit under
+#    h-flip and v-flip; if >= 2 orbit members share a non-bg value and
+#    the cell differs, set the cell to the orbit majority (ties: keep).
+#
+# MEASUREMENT (bin arc2_tier3, this manifest): over data/training @
+# f3283f72, enumerate v3 fits (len <= 3, 100k nodes, cap 2000, k=all);
+# N_3 = tasks with a fit at v3 and none at v2 (from
+# data/S2-arc2-paper-rerun-001/fpcurve2.json); C_3 = share of N_3 whose
+# R1 first fit solves the held-back test; FP_3 = share of N_3 with a fit
+# but R1 wrong; regression guard = the 46 v2-reached tasks and the 43
+# v2-solved-by-any set re-checked at v3. Pre-filed bars (descriptive,
+# not gates): N_3 >= 5; C_3 >= 0.75 supports B1's prediction; C_3 < 0.5
+# is the pre-written refutation boundary (protocol §5). After this run:
+# tier-3's ONE public-eval read (§3.3).
+manifest_id = "S2-arc2-tier3-001"
+schema_version = 1
+exploratory = false
+master_seed = 0
+seeds = [1]
+node_expansion_budget = 100000
+git_commit = "HEAD-at-launch; recorded in outputs"
+scope = [
+  "tier-3 op freeze + conversion measurement C_3 on ARC-2 training (B4)",
+  "descriptive; cannot feed any benchmark-progress claim […]",
+]
+
+[params]
+max_len = 3
+enum_budget_nodes = 100000
+fitting_cap_per_task = 2000
+palette_cap = 5
+tie_seed_tier3 = 992000
+n_new_ops = 10
+alphabet = "v3 = v2 + 10 frozen ops above"
+
+[inputs]
+dataset = "ARC-AGI-2 data/training @ f3283f727488ad98fe575ea6a5ac981e4a188e49"
+tier2_baseline = "data/S2-arc2-paper-rerun-001/fpcurve2.json"
+taxonomy = "data/b4-taxonomy-001/labels.json"
+
+[outputs]
+tier3 = "data/S2-arc2-tier3-001/tier3.json"
