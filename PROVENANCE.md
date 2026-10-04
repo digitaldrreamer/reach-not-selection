@@ -49,7 +49,7 @@ DECISIONS.md for what each run froze and what it found.
 All files under `data/` are byte-identical to the original repository (`data/S2-b5-002/m2/WEIGHTS.md` was written
 for this release). The files below differ from their original versions
 only by cuts marked […] and by
-deleting internal workstream labels such as "(Lane B)":
+deleting internal labels:
 - `notes/arc2-dsl-v1.md`
 - `notes/b4-tier-protocol-2026-08-21.md`
 - `notes/b5-design-2026-08-21.md`
